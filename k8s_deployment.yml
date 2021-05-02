@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-k8s
+spec:
+  selector:
+    matchLabels:
+      app: hello-k8s
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+        - name: hello-k8s
+          image: liuqiangdocker/qiangk8s:v1.0
+          ports:
+            - containerPort: 8888
